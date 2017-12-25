@@ -1,0 +1,18 @@
+DEPENDENCIES:
+tcpdump, sqlite3, python3
+
+HOWTO:
+Call tcpdump and >> into tcpdumpoutput in this folder for however long you want to collect packets.
+Run the bash script.
+	May have to run `#chmod +x` to make executable
+	File is piped into sed; tcpdump output is reformatted
+	Commas become delimiters; only timestamp, host, and inbound website is kept as info
+	Final output is piped into python script
+  Python script. (You don't run this directly)
+	sqlite3 library is used; database is created.
+	each line from the input being piped into this script is converted into a 3-tuple 
+	and inserted into the database db.
+
+Use sqlite3 to access collected info.
+	db ("example.db" by default) can be accessed with sqlite3.
+
